@@ -1,4 +1,4 @@
-package br.com.erudio.controllers;
+/*package br.com.erudio.controllers;
 
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -81,4 +81,4 @@ public class MathController {
         return squareRoot;
     }
 
-}
+}*/
