@@ -18,6 +18,18 @@ public class TestNumberConverter {
         assertTrue(NumberConverter.IsNumeric("5,2"));
         assertTrue(NumberConverter.IsNumeric("5.2"));
     }
+
+    @Test
+    public void sumTest() throws Exception {
+        assertEquals(4f, NumberConverter.Sum("2", "2"), 0.0f);
+    }
+    
+    @Test(expected = Exception.class)
+    public void sumWithExceptionTest() throws Exception {
+        assertEquals(4f, NumberConverter.Sum("A", "2"), 0.0f);
+    }
+    
+    
     
     @Test
     public void convertToDoubleTest() {
@@ -34,5 +46,7 @@ public class TestNumberConverter {
         assertEquals(expected, NumberConverter.CovertToDouble("5,2"), 0.0f);
         assertEquals(expected, NumberConverter.CovertToDouble("5.2"), 0.0f);
     }
+    
+    
 
 }

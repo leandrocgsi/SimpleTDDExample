@@ -14,4 +14,13 @@ public class NumberConverter {
         String number = strNumber.replaceAll(",", ".");
         return number.matches("[-+]?[0-9]*\\.?[0-9]+");
     }
+
+    public static Double Sum(String number1, String number2) throws Exception {
+        if (IsNumeric(number1) && IsNumeric(number2)) {
+            Double a = CovertToDouble(number1);
+            Double b = CovertToDouble(number2);
+            return a + b;
+        }
+        throw new Exception();
+    }
 }
