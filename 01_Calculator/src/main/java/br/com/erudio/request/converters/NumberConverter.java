@@ -1,12 +1,14 @@
 package br.com.erudio.request.converters;
 
+import java.math.BigDecimal;
+
 public class NumberConverter {
 
-    public static Double CovertToDouble(String strNumber) {
-        if (strNumber == null) return 0d; 
+    public static BigDecimal CovertToBigDecimal(String strNumber) {
+        if (strNumber == null) return BigDecimal.ZERO; 
         String number = strNumber.replaceAll(",", ".");
-        if (IsNumeric(number)) return Double.parseDouble(number);
-        return 0d;
+        if (IsNumeric(number)) return new BigDecimal(number);
+        return BigDecimal.ZERO;
     }
 
     public static boolean IsNumeric(String strNumber) {
@@ -15,12 +17,41 @@ public class NumberConverter {
         return number.matches("[-+]?[0-9]*\\.?[0-9]+");
     }
 
-    public static Double Sum(String number1, String number2) throws Exception {
+    public static BigDecimal sum(String number1, String number2) throws Exception {
         if (IsNumeric(number1) && IsNumeric(number2)) {
-            Double a = CovertToDouble(number1);
-            Double b = CovertToDouble(number2);
-            return a + b;
+            BigDecimal a = CovertToBigDecimal(number1);
+            BigDecimal b = CovertToBigDecimal(number2);
+            return a.add(b) ;
         }
         throw new Exception();
     }
+    
+    public static BigDecimal subtraction(String number1, String number2) throws Exception {
+        if (IsNumeric(number1) && IsNumeric(number2)) {
+            BigDecimal a = CovertToBigDecimal(number1);
+            BigDecimal b = CovertToBigDecimal(number2);
+            return a.subtract(b) ;
+        }
+        throw new Exception();
+    }   
+    
+    public static BigDecimal multiply(String number1, String number2) throws Exception {
+        if (IsNumeric(number1) && IsNumeric(number2)) {
+            BigDecimal a = CovertToBigDecimal(number1);
+            BigDecimal b = CovertToBigDecimal(number2);
+            return a.multiply(b) ;
+        }
+        throw new Exception();
+    }  
+    
+    public static BigDecimal divide(String number1, String number2) throws Exception {
+        if (IsNumeric(number1) && IsNumeric(number2)) {
+            BigDecimal a = CovertToBigDecimal(number1);
+            BigDecimal b = CovertToBigDecimal(number2);
+            return a.divide(b) ;
+        }
+        throw new Exception();
+    }
+    
+    
 }
