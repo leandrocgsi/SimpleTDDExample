@@ -2,6 +2,8 @@ package br.com.erudio.request.converters;
 
 import static org.junit.Assert.*;
 
+import java.math.BigDecimal;
+
 import org.junit.Test;
 
 public class TestNumberConverter {
@@ -21,12 +23,15 @@ public class TestNumberConverter {
 
     @Test
     public void sumTest() throws Exception {
-        assertEquals(4f, NumberConverter.Sum("2", "2"), 0.0f);
+        assertEquals(new BigDecimal("4"), NumberConverter.sum("2", "2"));
+        assertEquals(new BigDecimal("3.5"), NumberConverter.sum("2,5", "1,0"));
+        assertEquals(new BigDecimal("2"), NumberConverter.sum("-2", "4"));
+        assertEquals(new BigDecimal("6.4"), NumberConverter.sum("1.3", "5.1"));
     }
     
     @Test(expected = Exception.class)
     public void sumWithExceptionTest() throws Exception {
-        assertEquals(4f, NumberConverter.Sum("A", "2"), 0.0f);
+        assertEquals(new BigDecimal("4"), NumberConverter.sum("A", "2"));
     }
     
     
@@ -34,17 +39,17 @@ public class TestNumberConverter {
     @Test
     public void convertToDoubleTest() {
        
-        double expected = Double.parseDouble("5.2");
+        BigDecimal expected = new BigDecimal("5.2");
         
-        assertEquals(0f, NumberConverter.CovertToDouble("A"), 0.0f);
-        assertEquals(0f, NumberConverter.CovertToDouble(null), 0.0f);
-        assertEquals(0f, NumberConverter.CovertToDouble(" "), 0.0f);
-        assertEquals(0f, NumberConverter.CovertToDouble(""), 0.0f);
-        assertEquals(5f, NumberConverter.CovertToDouble("5"), 0.0f);
-        assertEquals(0f, NumberConverter.CovertToDouble("0"), 0.0f);
-        assertEquals(-2f, NumberConverter.CovertToDouble("-2"), 0.0f);
-        assertEquals(expected, NumberConverter.CovertToDouble("5,2"), 0.0f);
-        assertEquals(expected, NumberConverter.CovertToDouble("5.2"), 0.0f);
+        assertEquals(BigDecimal.ZERO, NumberConverter.CovertToBigDecimal("A"));
+        assertEquals(BigDecimal.ZERO, NumberConverter.CovertToBigDecimal(null));
+        assertEquals(BigDecimal.ZERO, NumberConverter.CovertToBigDecimal(" "));
+        assertEquals(BigDecimal.ZERO, NumberConverter.CovertToBigDecimal(""));
+        assertEquals(new BigDecimal("5"), NumberConverter.CovertToBigDecimal("5"));
+        assertEquals(BigDecimal.ZERO, NumberConverter.CovertToBigDecimal("0"));
+        assertEquals(new BigDecimal(-2f), NumberConverter.CovertToBigDecimal("-2"));
+        assertEquals(expected, NumberConverter.CovertToBigDecimal("5,2"));
+        assertEquals(expected, NumberConverter.CovertToBigDecimal("5.2"));
     }
     
     
