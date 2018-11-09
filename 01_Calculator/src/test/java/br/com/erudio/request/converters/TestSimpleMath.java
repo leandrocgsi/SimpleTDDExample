@@ -39,6 +39,17 @@ public class TestSimpleMath {
         assertEquals(new BigDecimal("-1.88899999999996"), math.subtraction(new BigDecimal("2.11100000000004"), new BigDecimal("4")));
     }
     
+    
+    @Test
+    public void multiplicationTest() throws Exception {
+        assertEquals(new BigDecimal("4"), math.multiplication(new BigDecimal("2"), new BigDecimal("2")));
+        assertEquals(new BigDecimal("2.50"), math.multiplication(new BigDecimal("2.5"), new BigDecimal("1.0")));
+        assertEquals(new BigDecimal("-8"), math.multiplication(new BigDecimal("-2"), new BigDecimal("4")));
+        assertEquals(new BigDecimal("6.63"), math.multiplication(new BigDecimal("1.3"), new BigDecimal("5.1")));
+        assertEquals(new BigDecimal("21.100000250"), math.multiplication(new BigDecimal("4.22000005"), new BigDecimal("5.0")));
+        assertEquals(new BigDecimal("8.44400000000016"), math.multiplication(new BigDecimal("2.11100000000004"), new BigDecimal("4")));
+    }
+    
     @Test(expected = NullPointerException.class)
     public void sumWithExceptionTest() throws UnsuportedMathOperationException {
         assertEquals(new BigDecimal("4"), math.sum(null, new BigDecimal("2")));
