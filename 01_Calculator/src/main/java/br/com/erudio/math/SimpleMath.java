@@ -25,6 +25,7 @@ public class SimpleMath {
     }
     
     public BigDecimal squareRoot(BigDecimal number) {
-        return (BigDecimal) Math.sqrt(number);
+        BigDecimal x = new BigDecimal(Math.sqrt(number.doubleValue()));
+        return x.add(new BigDecimal(number.subtract(x.multiply(x)).doubleValue() / (x.doubleValue() * 2.0)));
     }
 }
