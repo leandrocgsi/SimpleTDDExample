@@ -5,6 +5,7 @@ import java.math.BigDecimal;
 public class SimpleMath {
 
     public BigDecimal sum(BigDecimal firstNumber, BigDecimal secondNumber) {
+        if (firstNumber == null || secondNumber == null) throw new NullPointerException();
         return firstNumber.add(secondNumber);
     }
 
