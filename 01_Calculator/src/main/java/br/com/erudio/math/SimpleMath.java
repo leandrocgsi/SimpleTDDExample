@@ -1,28 +1,30 @@
 package br.com.erudio.math;
 
+import java.math.BigDecimal;
+
 public class SimpleMath {
 
-    public Double sum(Double firstNumber, Double secondNumber) {
-        return firstNumber + secondNumber;
+    public BigDecimal sum(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.add(secondNumber);
     }
 
-    public Double subtraction(Double firstNumber, Double secondNumber) {
-        return firstNumber - secondNumber;
+    public BigDecimal subtraction(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.subtract(secondNumber);
     }
 
-    public Double multiplication(Double firstNumber, Double secondNumber) {
-        return firstNumber * secondNumber;
+    public BigDecimal multiplication(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.multiply(secondNumber);
     }
 
-    public Double division(Double firstNumber, Double secondNumber) {
-        return firstNumber / secondNumber;
+    public BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return firstNumber.divide(secondNumber);
     }
 
-    public Double mean(Double firstNumber, Double secondNumber) {
-        return (firstNumber + secondNumber) / 2;
+    public BigDecimal mean(BigDecimal firstNumber, BigDecimal secondNumber) {
+        return (firstNumber.add(secondNumber)).divide(new BigDecimal("2"));
     }
     
-    public Double squareRoot(Double number) {
-        return (Double) Math.sqrt(number);
+    public BigDecimal squareRoot(BigDecimal number) {
+        return (BigDecimal) Math.sqrt(number);
     }
 }

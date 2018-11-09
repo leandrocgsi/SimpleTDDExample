@@ -6,6 +6,8 @@ import java.math.BigDecimal;
 
 import org.junit.Test;
 
+import br.com.erudio.exception.UnsuportedMathOperationException;
+
 public class TestNumberConverter {
 
     @Test
@@ -31,8 +33,8 @@ public class TestNumberConverter {
         assertEquals(new BigDecimal("6.11100000000004"), NumberConverter.sum("2.11100000000004", "4"));
     }
     
-    @Test(expected = Exception.class)
-    public void sumWithExceptionTest() throws Exception {
+    @Test(expected = UnsuportedMathOperationException.class)
+    public void sumWithExceptionTest() throws UnsuportedMathOperationException {
         assertEquals(new BigDecimal("4"), NumberConverter.sum("A", "2"));
     }
     

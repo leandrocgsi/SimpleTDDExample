@@ -2,6 +2,8 @@ package br.com.erudio.request.converters;
 
 import java.math.BigDecimal;
 
+import br.com.erudio.exception.UnsuportedMathOperationException;
+
 public class NumberConverter {
 
     public static BigDecimal CovertToBigDecimal(String strNumber) {
@@ -17,40 +19,40 @@ public class NumberConverter {
         return number.matches("[-+]?[0-9]*\\.?[0-9]+");
     }
 
-    public static BigDecimal sum(String number1, String number2) throws Exception {
+    public static BigDecimal sum(String number1, String number2) throws UnsuportedMathOperationException {
         if (IsNumeric(number1) && IsNumeric(number2)) {
             BigDecimal a = CovertToBigDecimal(number1);
             BigDecimal b = CovertToBigDecimal(number2);
             return a.add(b) ;
         }
-        throw new Exception();
+        throw new UnsuportedMathOperationException("Please insert numeric values");
     }
     
-    public static BigDecimal subtraction(String number1, String number2) throws Exception {
+    public static BigDecimal subtraction(String number1, String number2) throws UnsuportedMathOperationException {
         if (IsNumeric(number1) && IsNumeric(number2)) {
             BigDecimal a = CovertToBigDecimal(number1);
             BigDecimal b = CovertToBigDecimal(number2);
             return a.subtract(b) ;
         }
-        throw new Exception();
+        throw new UnsuportedMathOperationException("Please insert numeric values");
     }   
     
-    public static BigDecimal multiply(String number1, String number2) throws Exception {
+    public static BigDecimal multiply(String number1, String number2) throws UnsuportedMathOperationException {
         if (IsNumeric(number1) && IsNumeric(number2)) {
             BigDecimal a = CovertToBigDecimal(number1);
             BigDecimal b = CovertToBigDecimal(number2);
             return a.multiply(b) ;
         }
-        throw new Exception();
+        throw new UnsuportedMathOperationException("Please insert numeric values");
     }  
     
-    public static BigDecimal divide(String number1, String number2) throws Exception {
+    public static BigDecimal divide(String number1, String number2) throws UnsuportedMathOperationException {
         if (IsNumeric(number1) && IsNumeric(number2)) {
             BigDecimal a = CovertToBigDecimal(number1);
             BigDecimal b = CovertToBigDecimal(number2);
             return a.divide(b) ;
         }
-        throw new Exception();
+        throw new UnsuportedMathOperationException("Please insert numeric values");
     }
     
     
