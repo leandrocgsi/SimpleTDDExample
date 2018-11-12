@@ -1,6 +1,7 @@
 package br.com.erudio.math;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class SimpleMath {
 
@@ -18,7 +19,8 @@ public class SimpleMath {
     }
 
     public BigDecimal division(BigDecimal firstNumber, BigDecimal secondNumber) {
-        return firstNumber.divide(secondNumber);
+        //BigDecimal bd = new BigDecimal(12.12, MathContext.DECIMAL32).divide(new BigDecimal(2)).setScale(2, RoundingMode.HALF_UP);
+        return firstNumber.divide(secondNumber, 8, RoundingMode.HALF_UP);
     }
 
     public BigDecimal mean(BigDecimal firstNumber, BigDecimal secondNumber) {
