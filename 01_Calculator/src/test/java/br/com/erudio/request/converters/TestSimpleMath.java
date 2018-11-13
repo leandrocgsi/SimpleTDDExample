@@ -58,7 +58,17 @@ public class TestSimpleMath {
         assertEquals(new BigDecimal("0.84400001"), math.division(new BigDecimal("4.22000005"), new BigDecimal("5.0")));
         assertEquals(new BigDecimal("0.52775000"), math.division(new BigDecimal("2.11100000000004"), new BigDecimal("4")));
     }
-    
+        
+    @Test
+    public void squareRootTest() throws Exception {
+        assertEquals(new BigDecimal("3.0000"), math.squareRoot(new BigDecimal("9")));
+        assertEquals(new BigDecimal("4.0000"), math.squareRoot(new BigDecimal("16")));
+        assertEquals(new BigDecimal("8.0000"), math.squareRoot(new BigDecimal("64")));
+        assertEquals(new BigDecimal("12.0000"), math.squareRoot(new BigDecimal("144")));
+        assertEquals(new BigDecimal("2.8284"), math.squareRoot(new BigDecimal("8")));
+        assertEquals(new BigDecimal("16.0000"), math.squareRoot(new BigDecimal("256")));
+    }
+        
     @Test(expected = NullPointerException.class)
     public void sumWithExceptionTest() throws UnsuportedMathOperationException {
         assertEquals(new BigDecimal("4"), math.sum(null, new BigDecimal("2")));
